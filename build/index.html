@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ru-RU">
+  <head>
+    <meta charset="utf-8"><!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE = edge"><![endif]-->			
+    <title>Шаблон sass+pug</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+  </head>
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <body class="body-main body-inner">
+    <!-- centerlayer-->
+    <div class="centerlayer">
+      <p>Lorem ipsum dolor <span>ff</span>sit amet, consectetur adipisicing elit. Eos, quidem? Aspernatur porro consequuntur placeat enim ullam obcaecati, perferendis officia laborum quod delectus, et cupiditate, iusto minima voluptas rerum possimus eligendi.</p>Контент
+      <div>Описание2</div>
+      <p>Звоните потелефону <a class="myphone" href="tel://123">123456789</a></p><a><img src="img/myimg.png" alt=""></a>
+      <svg>
+        <rect width="100%" height="100%"/>
+      </svg><br/>
+      <ul>
+        <li>name1</li>
+      </ul>
+      <div class="new-text">
+        <p>Новость пустая</p>
+      </div>
+      <div class="new-text">
+        <p>Загловок</p>
+        <p>Текст новости</p>
+      </div>
+      <ul class="listlinks">
+        <li>Ссылка</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+      </ul>
+      <div>
+        
+        <a href="#">ссылка</a>
+        <a href="#">1</a>
+      </div>
+      <button class="modal-open">модальное окно</button>
+      <footer>
+        <ul>
+          <li><a class="navItem" href="google.com">1</a></li>
+          <li><a class="navItem" href="yandex.ru">2</a></li>
+        </ul>
+      </footer>
+    </div>
+    <!-- \ centerlayer-->
+    <!-- MODAL-WINDOW-->
+    <div class="modal-bg"></div>
+    <div class="modal-window modal-type-standart">
+      <div class="modal-close">x</div>
+      <div class="result-form"></div>
+      <div class="modal-form">
+        <form action=""></form>
+        <input type="text" name="vname" placeholder="Введите имя" required="required"/>
+        <input type="text" name="vphone" placeholder="Введите телефон" required="required"/>
+        <input type="text" name="vmail" placeholder="Ваш E-mail" required="required"/>
+        <button name="submit-butto">Отправить</button>
+      </div>
+    </div>
+    <!-- \ MODAL-WINDOW-->
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/site.js"></script>
+  </body>
+</html>

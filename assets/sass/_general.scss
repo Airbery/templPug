@@ -1,0 +1,154 @@
+/* ------------------------- Helpers ------------------------- */
+.centerlayer {
+	margin-left: 0;
+	width: 100%;
+}
+
+.content {
+	width: 100%;
+	max-width: 1170px;
+	margin: 0 auto;
+	padding: 0 $gutters;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	margin-right: -#{$gutters};
+	margin-left: -#{$gutters};
+	.col-mm {
+		padding-left: $gutters;
+		padding-right: $gutters;
+	}
+}
+
+.content::after,
+.clearfix::after {
+	content: '';
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+
+.d-flex {
+	display: flex;
+}
+
+.d-inlineb {
+	font-size: 0;
+	&>li {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 1rem;
+	}
+}
+
+.text-overflow {
+	display: block;
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	white-space: nowrap;
+}
+/* ------------------------- \Helpers ------------------------- */
+
+/* ------------------------- Modals ------------------------- */
+.modal {
+	&-open {
+		background: transparent;
+		cursor: pointer;
+		&:hover {
+			opacity: 0.8;
+		}
+	}
+	&-bg {
+		position: fixed;
+		z-index: 1000;
+		top: 0;
+		left: 0;
+		display: none;
+		background: rgba(0, 0, 0, 0.5);
+		width: 100%;
+		height: 100%;
+	}
+	&-close {
+		position: absolute;
+		top: 2px;
+		right: 4px;
+		color: #fff;
+		cursor: pointer;
+		line-height: 1;
+	}
+	&-window {
+		position: fixed;
+		z-index: 1100;
+		top: 50%;
+		left: 50%;
+		display: none;
+		padding: 40px 0 20px;
+		width: 300px;
+		background: #1a3549;
+		text-align: center;
+		transform: translate(-50%, -50%);
+	}
+}
+/* ------------------------- \Modals ------------------------- */
+
+/* ------------------------- Forms ------------------------- */
+input,
+button {
+	border: none;
+	margin: 0 0 20px;
+}
+
+input[type='text'] {
+	box-sizing: border-box;
+	width: 100%;
+	max-width: 270px;
+	height: 40px;
+	background: #fff;
+	.modal-window & {
+		padding-left: 15px;
+		padding-right: 15px;
+	}
+}
+
+input[type='submit'],
+button[type='submit'] {
+	width: 100%;
+	max-width: 270px;
+	height: 40px;
+	background: transparent;
+	&:hover {
+		opacity: 0.8;
+	}
+	.modal-window & {
+		color: #fff;
+	}
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder,
+input::-moz-placeholder,
+textarea::-moz-placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder,
+input::placeholder,
+textarea::placeholder {
+	font-size: 15px;
+	color: #aaa;
+}
+
+input:focus,
+textarea:focus {
+	opacity: 0.8;
+}
+
+input:focus:required:invalid,
+textarea:focus:required:invalid {
+}
+
+input:required:valid,
+textarea:required:valid {
+}
+/* ------------------------- \Forms ------------------------- */

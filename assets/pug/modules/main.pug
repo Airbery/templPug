@@ -1,0 +1,40 @@
+block variables
+	include variables
+include mixins
+
+doctype html
+html(lang="ru-RU")
+	head
+		meta(charset="utf-8")
+		<!--[if IE]>
+		meta(http-equiv='X-UA-Compatible', content="IE = edge")
+		<![endif]-->			
+		title Шаблон sass+pug
+		meta(name="viewport" content="width=device-width,initial-scale=1")
+		meta(name="description" content="")
+		meta(name="keywords" content="")
+	block css
+		link(rel="stylesheet" type='text/css' href="./css/style.css")
+
+	body
+		// centerlayer
+		.centerlayer
+			//- include header
+
+			block content
+				
+			//- include footer
+
+		// \ centerlayer
+
+		// MODAL-WINDOW
+		.modal-bg
+		.modal-window.modal-type-standart
+			.modal-close x
+			.result-form
+			.modal-form
+				+standForm()
+		// \ MODAL-WINDOW
+
+		script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+		script(src="./js/site.js")

@@ -1,0 +1,38 @@
+mixin standForm()
+	form(action="")
+	input(type="text" name="vname" placeholder="Введите имя" required)
+	input(type="text" name="vphone" placeholder="Введите телефон" required)
+	input(type="text" name="vmail" placeholder="Ваш E-mail" required)
+	button(name="submit-butto") Отправить
+
+
+
+
+mixin menu(items)
+	ul
+		each item in items
+			li: a(href="#") #{item}
+
+mixin menu1(linkItem)
+	ul
+		for item in linkItem
+			li
+				a(href=item.link).navItem=item.name
+
+mixin name(name)
+	ul
+		li= name
+
+//- Проверка наличия содержимого - if block
+mixin new(title)
+	.new-text
+		if block
+			block
+		else
+			p Новость пустая
+
+mixin listlinks(...links)
+	ul.listlinks
+		each item in links
+			li= item
+

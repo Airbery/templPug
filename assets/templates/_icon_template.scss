@@ -1,0 +1,23 @@
+$icon_font_name:"<%= fontName %>";
+@font-face {
+	font-family:$icon_font_name;
+	src: url('<%= fontPath %><%= fontName %>.woff2') format('woff2'),
+		 url('<%= fontPath %><%= fontName %>.woff') format('woff'),
+		 url('<%= fontPath %><%= fontName %>.ttf') format('truetype');
+}
+[class*="icon-"] {
+    font-family: $icon_font_name;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+<% _.each(glyphs, function(glyph) { %>.icon-<%= glyph.fileName %>:before {
+	content:'\<%= glyph.codePoint %>';
+}
+<% }); %>

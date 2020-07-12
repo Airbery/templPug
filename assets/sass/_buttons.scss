@@ -1,0 +1,23 @@
+/**------------------------- Buttons -------------------------*/
+.btn,
+a.btn {
+	display: inline-block;
+	width: 230px;
+	height: 65px;
+	font-size: 24px;
+	font-weight: 600;
+	text-align: center;
+	text-transform: uppercase;
+	transition: background 1s linear;
+	border-radius: 28px;
+	&-blue {
+		color: #fff;
+		background: #13c9fd;
+		&:hover {
+			background: $colorMain;
+			color: #fff;
+		}
+	}
+}
+
+/**------------------------- \Buttons -------------------------*/

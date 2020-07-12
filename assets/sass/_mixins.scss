@@ -1,0 +1,120 @@
+@function toDigit($size) {
+	@return $size/($size * 0 + 1);
+}
+
+@mixin media($mq-screen:960, $size:max) {
+	@media screen and (#{$size}-width: #{$mq-screen}px) {
+		@content;
+	}
+}
+
+@mixin rem($sizeValue) {
+	font-size: ($sizeValue/16) + rem;
+}
+
+@function rem($size) {
+	@return ($size/16) + rem;
+}
+
+@function percent($size, $fullsize:1170) {
+	$val: '%';
+	@return ($size/$fullsize)*100*1%;
+}
+
+@mixin genFont($font:Arial, $local:$font, $weight:400, $style:normal) {
+	@font-face {
+		font-family: $font;
+		font-style: $style;
+		font-weight: $weight;
+		font-display: swap;
+		src: local('#{$local}'),
+			url('../fonts/#{$local}/#{$font}.woff2') format('woff2'),
+			url('../fonts/#{$local}/#{$font}.woff') format('woff'),
+			url('../fonts/#{$local}/#{$font}.ttf') format('ttf');
+	}
+}
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+@mixin clearfix() {
+	&::after {
+		content: '&nbsp;';
+		display: block;
+		height: 0;
+		clear: both;
+		visibility: hidden;
+	}
+}
+
+@mixin arr($direction:t, $width:10, $height:10, $bg:#000) {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	@if $direction == t {
+		bottom: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		border-width: 0 $width / 2 + px $height + px $width / 2 + px;
+		border-color: transparent transparent $bg transparent;
+	}
+	@if $direction == r {
+		top: 50%;
+		left: 100%;
+		transform: translateY(-50%);
+		border-width: $height / 2 + px 0 $height / 2 + px $width + px;
+		border-color: transparent transparent transparent $bg;
+	}
+	@if $direction == b {
+		top: 100%;
+		left: 50%;
+		transform: translateX(-50%);
+		border-width: $height + px $width / 2 + px 0 $width / 2 + px;
+		border-color: $bg transparent transparent transparent;
+	}
+	@if $direction == l {
+		top: 50%;
+		right: 100%;
+		transform: translateY(-50%);
+		border-width: $height / 2 + px $width + px $height / 2 + px 0;
+		border-color: transparent $bg transparent transparent;
+	}
+	@if $direction == tl {
+		border-width: $height + px $width + px 0 0;
+		border-color: $bg transparent transparent transparent;
+	}
+	@if $direction == tr {
+		border-width: 0 $width + px $height + px 0;
+		border-color: transparent $bg transparent transparent;
+	}
+	@if $direction == br {
+		border-width: 0 0 $height + px $width + px;
+		border-color: transparent transparent $bg transparent;
+	}
+	@if $direction == bl {
+		border-width: $height + px 0 0 $width + px;
+		border-color: transparent transparent transparent $bg;
+	}
+}
+
+@mixin placeholder {
+	&:-ms-input-placeholder,
+	&:-moz-placeholder,
+	&::-moz-placeholder,
+	&::-webkit-input-placeholder,
+	&::placeholder {
+		@content;
+	}
+}
+
+@mixin text-overflow {
+	overflow: hidden;
+	-ms-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}

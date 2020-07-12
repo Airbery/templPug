@@ -1,0 +1,7 @@
+*.psd
+*.doc
+*.docx
+*.zip
+*.rar
+*.pdf
+/node_modules
