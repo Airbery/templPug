@@ -34,14 +34,7 @@ var gulp = require('gulp'),
     replace = require("gulp-replace"),
 
     stylelint = require("gulp-stylelint"),
-    eslint = require("gulp-eslint"),
-
-    pageres = require('pageres')
-    PNG = require('pngjs').PNG,
-	pixelmatch = require('pixelmatch'),
-	critical = require('critical').stream,
-	uncss = require("uncss"),
-	fs = require('fs')
+    eslint = require("gulp-eslint")
 ;
 
 var basedir = ''; // '' - current dir 
@@ -366,34 +359,6 @@ gulp.task('lintjs', function () {
 // \ -----------LINTERS
 
 // -----------HELPERS
-gulp.task('critical', gulp.series(function() {
-  return gulp.src('build/*.html')
-    .pipe(critical({
-      base: 'build/',
-      inline: true,
-      dest: 'index-critical.html',
-      css: [
-        'build/css/style.css'
-      ]
-    }))
-    .pipe(gulp.dest('build'));
-}));
-
-gulp.task("uncss", function(cb) {
-	var files = ["build/index.html"];
-	uncss(files, {
-			htmlroot: 'build/',
-			ignoreSheets : ['fonts.googleapis', 'cdnjs.cloudflare.com'],
-			ignore : [/^#js/],
-			// stylesheets  : ['libs/slick.min.css', 'css/style.min.css']
-		},
-		function (error, output) {
-			fs.writeFileSync('assets/blocks/clear.css', output);
-			console.log('Sucess' + 'assets/blocks/clear.css');
-		}
-	);
-	cb();
-});
 
 var onError = function(err) {
     notify.onError({
