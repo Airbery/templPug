@@ -3,11 +3,43 @@ mixin standForm()
 	input(type="text" name="vname" placeholder="Введите имя" required)
 	input(type="text" name="vphone" placeholder="Введите телефон" required)
 	input(type="text" name="vmail" placeholder="Ваш E-mail" required)
-	button(name="submit-butto") Отправить
+	button(name="submit-button" type="submit") Отправить
+
+mixin scm(sectionName, type="section")
+	#{type}(class=`${sectionName}`)&attributes(attributes)
+		.content
+				block		
+
+mixin hcm(sectionName, type="header")
+	#{type}(class=`${sectionName}`)&attributes(attributes)
+		.content
+			.row
+				block
+
+mixin links(links)
+		for item in links
+			li
+				a(href=`${item.link}`)!= item.txt
+
+mixin img(src, alt="")
+	img(src=`${src}` alt=`${alt}`)
+
+mixin printIcons(classIcon)
+	i(class=`#{classIcon}`)
+
+mixin printItems(listItems, nameItem)
+	for item in listItems
+		.col-mm
+			div(class=`item-${nameItem}`)
+				.b-img
+					img(src=`img/${item.img}`)
+				h3 !{item.title}
+				.b-txt !{item.txt}
 
 
 
 
+//- Examples
 mixin menu(items)
 	ul
 		each item in items
@@ -17,7 +49,7 @@ mixin menu1(linkItem)
 	ul
 		for item in linkItem
 			li
-				a(href=item.link).navItem=item.name
+				a(href=item.link).navItem= item.name
 
 mixin name(name)
 	ul
@@ -30,9 +62,3 @@ mixin new(title)
 			block
 		else
 			p Новость пустая
-
-mixin listlinks(...links)
-	ul.listlinks
-		each item in links
-			li= item
-
