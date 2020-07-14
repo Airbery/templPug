@@ -51,7 +51,7 @@ const pathAssets = basedir + 'assets/';
 const pathBuild = basedir + 'build/';
 const paths = {
 	html: {
-		src: pathAssets + '*.html',
+		src: pathAssets + '*.+(html|php)',
 		dist: pathBuild
 	},
 	styles: {
@@ -284,7 +284,11 @@ gulp.task('copylibs', function () {
 	.pipe(newer(paths.libs.dist))
 	.pipe(gulp.dest(paths.libs.dist))
 });
-
+gulp.task('copyphp', function () {
+	return gulp.src(paths.libs.src)
+	.pipe(newer(paths.libs.dist))
+	.pipe(gulp.dest(paths.libs.dist))
+});
 gulp.task('browsersync', function () {
 	browserSync.init({
 		server: {
@@ -298,10 +302,10 @@ gulp.task('browsersync', function () {
 });
 
 gulp.task('watch', function() {
-	console.log(basedir);
+	console.log("Базовая директория: " + basedir);
 	gulp.watch(paths.styles.src, gulp.series('styles'));
 	gulp.watch(paths.imgs.src, gulp.series('imgmin', 'imgwebp'));
-	// gulp.watch(paths.html.src, gulp.series('html'));
+	gulp.watch(paths.html.src, gulp.series('html'));
 	gulp.watch(paths.pug.src, gulp.series('pug'));
 	gulp.watch(paths.scripts.src, gulp.series('scripts'));
 	gulp.watch(paths.fonts.src, gulp.series('copyfonts'));
@@ -324,7 +328,7 @@ gulp.task('watch', function() {
 
 gulp.task('default', gulp.series(
 		'clean',
-		gulp.parallel(['styles', 'pug', 'scripts', 'imgmin', 'copyfonts', 'copylibs']),
+		gulp.parallel(['styles', 'pug', 'html','scripts', 'imgmin', 'copyfonts', 'copylibs']),
 		gulp.parallel('browsersync','watch')
 		)
 	);

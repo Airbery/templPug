@@ -80,7 +80,7 @@ textarea {
 button[type='submit'] {
 	.modal-window & {
 		text-transform: uppercase;
-		color: $colorOrang;		
+		color: #ff0;		
 	}
 	&:hover {
 		opacity: 0.8;
@@ -148,7 +148,7 @@ textarea:required:valid {
 		display: none;
 		padding: 40px 0 20px;
 		width: 300px;
-		background: $colorOrang;
+		background: rgba(0,0,0,0.5);
 		text-align: center;
 		transform: translate(-50%, -50%);
 	}
